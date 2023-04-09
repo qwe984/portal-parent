@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="portal-goods" />
+        <module name="portal-index" />
+        <module name="portal-search" />
+        <module name="portal-util" />
+        <module name="portal-gateway" />
+        <module name="portal-code" />
+        <module name="portal-cms" />
+        <module name="portal-api" />
+        <module name="portal-entity" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="portal-api" target="1.8" />
+      <module name="portal-cms" target="1.8" />
+      <module name="portal-code" target="1.8" />
+      <module name="portal-entity" target="1.8" />
+      <module name="portal-gateway" target="1.8" />
+      <module name="portal-goods" target="1.8" />
+      <module name="portal-index" target="1.8" />
+      <module name="portal-parent" target="1.8" />
+      <module name="portal-search" target="1.8" />
+      <module name="portal-util" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="portal-api" options="-parameters" />
+      <module name="portal-cms" options="-parameters" />
+      <module name="portal-code" options="-parameters" />
+      <module name="portal-entity" options="-parameters" />
+      <module name="portal-gateway" options="-parameters" />
+      <module name="portal-goods" options="-parameters" />
+      <module name="portal-index" options="-parameters" />
+      <module name="portal-search" options="-parameters" />
+      <module name="portal-util" options="-parameters" />
+    </option>
+  </component>
+</project>

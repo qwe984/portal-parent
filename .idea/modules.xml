@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/portal-api/portal-api.iml" filepath="$PROJECT_DIR$/portal-api/portal-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/portal-cms/portal-cms.iml" filepath="$PROJECT_DIR$/portal-cms/portal-cms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/portal-code/portal-code.iml" filepath="$PROJECT_DIR$/portal-code/portal-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/portal-entity/portal-entity.iml" filepath="$PROJECT_DIR$/portal-entity/portal-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/portal-gateway/portal-gateway.iml" filepath="$PROJECT_DIR$/portal-gateway/portal-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/portal-goods/portal-goods.iml" filepath="$PROJECT_DIR$/portal-goods/portal-goods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/portal-index/portal-index.iml" filepath="$PROJECT_DIR$/portal-index/portal-index.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/portal-parent.iml" filepath="$PROJECT_DIR$/.idea/portal-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/portal-search/portal-search.iml" filepath="$PROJECT_DIR$/portal-search/portal-search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/portal-util/portal-util.iml" filepath="$PROJECT_DIR$/portal-util/portal-util.iml" />
+    </modules>
+  </component>
+</project>

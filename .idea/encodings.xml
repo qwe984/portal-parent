@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/portal-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-cms/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-cms/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-code/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-code/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-entity/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-entity/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-goods/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-goods/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-index/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-index/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-search/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-search/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-util/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-util/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
