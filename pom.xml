@@ -8,16 +8,17 @@
     <artifactId>portal-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-<!--    <modules>-->
-<!--        <module>portal-code</module>-->
-<!--        <module>portal-entity</module>-->
-<!--        <module>portal-util</module>-->
-<!--        <module>portal-cms</module>-->
-<!--        <module>portal-goods</module>-->
-<!--        <module>portal-index</module>-->
-<!--        <module>portal-gateway</module>-->
-<!--        <module>portal-search</module>-->
-<!--    </modules>-->
+    <modules>
+        <module>portal-api</module>
+        <module>portal-code</module>
+        <module>portal-entity</module>
+        <module>portal-util</module>
+        <module>portal-cms</module>
+        <module>portal-goods</module>
+        <module>portal-index</module>
+        <module>portal-gateway</module>
+        <module>portal-search</module>
+    </modules>
 
     <!--    锁定springboot的版本-->
     <parent>

@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        namespace: sit
+        group: DEFAULT_GROUP
+        prefix: portal-cms
+        file-extension: yml
+        shared-dataids: common.yml
+        refreshable-dataids: common.yml
+  profiles:
+    active: sit
+

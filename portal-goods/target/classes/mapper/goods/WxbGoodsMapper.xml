@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.portal.goods.mapper.WxbGoodsMapper">
+
+
+    <!-- List<WxbGoods> findGoodsSpuInfo();-->
+
+    <resultMap id="findGoodsSpuInfoMap" type="WxbGoods">
+        <result property="id" column="spuId"></result>
+        <result property="sellerId" column="seller_id"></result>
+        <result property="goodsName" column="goods_name"></result>
+        <result property="price" column="default_price"></result>
+        <result property="typeTemplateId" column="template_id"></result>
+        <result property="smallPic" column="small_pic"></result>
+        <!-- 品牌-->
+        <association property="brand" javaType="WxbGoodsBrand">
+            <id property="id" column="brand_id"></id>
+            <result property="name" column="brand_name"></result>
+        </association>
+        <!-- 一级分类-->
+        <association property="cat1" javaType="WxbGoodsCat">
+            <id property="id" column="cat1id"></id>
+            <result property="name" column="cat1name"></result>
+        </association>
+        <!-- 二级分类-->
+        <association property="cat2" javaType="WxbGoodsCat">
+            <id property="id" column="cat2id"></id>
+            <result property="name" column="cat2name"></result>
+        </association>
+        <!-- 三级分类-->
+        <association property="cat3" javaType="WxbGoodsCat">
+            <id property="id" column="cat3id"></id>
+            <result property="name" column="cat3name"></result>
+        </association>
+    </resultMap>
+
+
+    <select id="findGoodsSpuInfo" resultMap="findGoodsSpuInfoMap">
+
+            SELECT
+            goods.id as spuId,
+            goods.seller_id ,
+            goods.goods_name,
+            goods.price as default_price,
+            goods.small_pic,
+            brand.id as brand_id,
+            brand.`name` as brand_name,
+            cat1.id as cat1id,
+            cat1.`name` as cat1name,
+            cat2.id as cat2id,
+            cat2.`name` as cat2name,
+            cat3.id as cat3id,
+            cat3.`name` as cat3name,
+            cat3.template_id
+
+             from wxb_goods goods
+            LEFT JOIN wxb_goods_brand brand on brand.id = goods.brand_id
+            LEFT JOIN wxb_goods_cat cat1 on cat1.id = goods.category1_id
+            LEFT JOIN wxb_goods_cat cat2 on cat2.id = goods.category2_id
+            LEFT JOIN wxb_goods_cat cat3 on cat3.id = goods.category3_id
+			where goods.audit_status=1
+    </select>
+
+<!--      WxbGoods findGoodsById(String spuId);-->
+    <select id="findGoodsById" resultMap="findGoodsSpuInfoMap">
+          SELECT
+            goods.id as spuId,
+            goods.seller_id ,
+            goods.goods_name,
+            goods.price as default_price,
+            goods.small_pic,
+            brand.id as brand_id,
+            brand.`name` as brand_name,
+            cat1.id as cat1id,
+            cat1.`name` as cat1name,
+            cat2.id as cat2id,
+            cat2.`name` as cat2name,
+            cat3.id as cat3id,
+            cat3.`name` as cat3name,
+            cat3.template_id
+
+             from wxb_goods goods
+            LEFT JOIN wxb_goods_brand brand on brand.id = goods.brand_id
+            LEFT JOIN wxb_goods_cat cat1 on cat1.id = goods.category1_id
+            LEFT JOIN wxb_goods_cat cat2 on cat2.id = goods.category2_id
+            LEFT JOIN wxb_goods_cat cat3 on cat3.id = goods.category3_id
+			where goods.audit_status=0
+			and goods.id = #{spuId}
+    </select>
+
+
+
+</mapper>

@@ -1,0 +1,6 @@
+com\portal\SearchApp.class
+com\portal\service\impl\SearchServiceImpl.class
+com\portal\entity\ESGoods.class
+com\portal\controller\SearchController.class
+com\portal\service\SearchService.class
+com\portal\entity\SearchPageResult.class

@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848 #指定配置中心的服务地址
+        namespace: sit #指定namespace
+        group: DEFAULT_GROUP #指定group  检索文件公式：${prefix}-${spring.profiles.active}.${file-extension}
+        prefix: portal-gateway #指定前缀
+        file-extension: yml
+        shared-dataids: common.yml #指定共享配置文件
+        refreshable-dataids: common.yml  #指定哪些文件可以动态刷新
+  profiles:
+    active: sit
