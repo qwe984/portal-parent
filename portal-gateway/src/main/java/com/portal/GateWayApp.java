@@ -9,11 +9,6 @@ import org.springframework.web.cors.reactive.CorsWebFilter;
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 import org.springframework.web.util.pattern.PathPatternParser;
 
-/**
- * <p>title: com.portal</p>
- * author zhuximing
- * description:
- */
 @SpringBootApplication
 @EnableDiscoveryClient
 public class GateWayApp {

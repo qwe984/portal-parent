@@ -9,14 +9,7 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author jobob
- * @since 2020-11-16
- */
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("seckill_goods")

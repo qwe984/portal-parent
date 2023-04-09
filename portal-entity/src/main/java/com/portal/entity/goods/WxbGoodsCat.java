@@ -7,14 +7,7 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
-/**
- * <p>
- * 商品类目
- * </p>
- *
- * @author zhuxm
- * @since 2021-04-02
- */
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class WxbGoodsCat implements Serializable {

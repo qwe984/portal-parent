@@ -9,14 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author zhuxm
- * @since 2021-04-10
- */
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class WxbOrder implements Serializable {

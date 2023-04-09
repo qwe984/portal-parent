@@ -8,14 +8,6 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author zhuxm
- * @since 2021-04-09
- */
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class WxbMemeber implements Serializable {

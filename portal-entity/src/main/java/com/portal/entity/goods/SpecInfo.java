@@ -6,11 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-/**
- * <p>title: com.portal.entity.goods</p>
- * author zhuximing
- * description:
- */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

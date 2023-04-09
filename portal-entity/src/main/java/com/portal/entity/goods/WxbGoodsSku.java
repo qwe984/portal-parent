@@ -10,14 +10,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-/**
- * <p>
- * 商品表
- * </p>
- *
- * @author zhuxm
- * @since 2021-04-02
- */
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class WxbGoodsSku implements Serializable {

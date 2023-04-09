@@ -8,14 +8,7 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author zhuxm
- * @since 2021-04-10
- */
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class WxbOrderItems implements Serializable {

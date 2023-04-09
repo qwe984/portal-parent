@@ -8,14 +8,7 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
-/**
- * <p>
- * 内容分类
- * </p>
- *
- * @author zhuxm
- * @since 2021-04-02
- */
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("cms_content_cat")

@@ -4,11 +4,7 @@ import lombok.*;
 
 import java.util.List;
 
-/**
- * <p>title: com.wfx.vo</p>
- * author zhuximing
- * description:
- */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

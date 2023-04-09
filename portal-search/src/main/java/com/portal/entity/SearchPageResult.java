@@ -5,11 +5,6 @@ import lombok.Data;
 
 import java.util.List;
 
-/**
- * <p>title: com.portal.entity</p>
- * author zhuximing
- * description:
- */
 @Data
 public class SearchPageResult extends PageResultVO {
 
