@@ -39,7 +39,7 @@ public class CodeController {
         GlobalConfig gc = new GlobalConfig();
         final String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/"+project+"/src/main/java");
-        gc.setAuthor("zhuxm");
+        gc.setAuthor("zsh");
         gc.setOpen(false);
         //数据库表字段为日期类型的直接生成为Date属性类型
         gc.setDateType(DateType.ONLY_DATE);
