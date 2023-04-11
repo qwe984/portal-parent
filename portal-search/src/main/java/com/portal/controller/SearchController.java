@@ -1,6 +1,7 @@
 package com.portal.controller;
 
 import com.portal.entity.ESGoods;
+import com.portal.entity.goods.WxbGoods;
 import com.portal.service.SearchService;
 import com.portal.vo.PageResultVO;
 import com.portal.vo.Result;
@@ -24,5 +25,10 @@ public class SearchController {
     @RequestMapping({"search"})
     public PageResultVO<ESGoods> search(@RequestBody Map searchMap) {
         return this.searchService.search(searchMap);
+    }
+
+    @RequestMapping("goods2es")
+    public Result goods2es(@RequestBody WxbGoods wxbGoods){
+        return searchService.goods2es(wxbGoods);
     }
 }

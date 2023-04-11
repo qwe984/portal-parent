@@ -1,29 +1,21 @@
 package com.portal.service.impl;
 
-import com.netflix.config.AggregatedConfiguration;
-import com.portal.GoodsClient;
+import com.portal.goods.GoodsClient;
 import com.portal.entity.ESGoods;
 import com.portal.entity.SearchPageResult;
 import com.portal.entity.goods.WxbGoods;
 import com.portal.service.SearchService;
 import com.portal.vo.PageResultVO;
 import com.portal.vo.Result;
-import io.netty.util.internal.StringUtil;
-import jdk.nashorn.internal.runtime.NativeJavaPackage;
-import org.apache.lucene.util.QueryBuilder;
-import org.checkerframework.checker.units.qual.C;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.TermQueryBuilder;
-import org.elasticsearch.search.aggregations.Aggregation;
-import org.elasticsearch.search.aggregations.AggregationBuilder;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.Aggregations;
 import org.elasticsearch.search.aggregations.bucket.terms.Terms;
 import org.elasticsearch.search.aggregations.bucket.terms.TermsAggregationBuilder;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
-import org.elasticsearch.search.sort.FieldSortBuilder;
 import org.elasticsearch.search.sort.SortBuilder;
 import org.elasticsearch.search.sort.SortBuilders;
 import org.elasticsearch.search.sort.SortOrder;
@@ -32,10 +24,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.SearchHits;
-import org.springframework.data.elasticsearch.core.query.HighlightQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
-import org.springframework.data.elasticsearch.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -81,6 +71,37 @@ public class SearchServiceImpl implements SearchService {
         });
 
         return new Result(true,"初始化成功");
+    }
+
+    @Override
+    public Result goods2es(WxbGoods wxbGoods) {
+        List<WxbGoods> goodSpuInfo = goodsClient.findGoodSpuInfo();
+
+        //spu->esGoods
+        ESGoods esGoods = new ESGoods();
+        esGoods.setSpuId(wxbGoods.getId());
+
+        esGoods.setBrandId(wxbGoods.getBrand().getId());
+        esGoods.setBrandName(wxbGoods.getBrand().getName());
+
+
+        esGoods.setCid1id(wxbGoods.getCat1().getId());
+        esGoods.setCat1name(wxbGoods.getCat1().getName());
+        esGoods.setCid2id(wxbGoods.getCat2().getId());
+        esGoods.setCat2name(wxbGoods.getCat2().getName());
+        esGoods.setCid3id(wxbGoods.getCat3().getId());
+        esGoods.setCat3name(wxbGoods.getCat3().getName());
+
+        esGoods.setCreateTime(new Date());
+        esGoods.setGoodsName(wxbGoods.getGoodsName());
+        esGoods.setPrice(wxbGoods.getPrice().doubleValue());
+        esGoods.setSmallPic(wxbGoods.getSmallPic());
+
+        //保存
+        elasticsearchRestTemplate.save(esGoods);
+
+        elasticsearchRestTemplate.save(esGoods);
+        return new Result(true,"同步成功");
     }
 
     @Override
@@ -211,6 +232,8 @@ public class SearchServiceImpl implements SearchService {
 
         return searchPageResult;
     }
+
+
 
     //设置高亮字段
     private HighlightBuilder getHighlightBuilder(String... fields){

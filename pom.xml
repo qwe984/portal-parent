@@ -18,6 +18,7 @@
         <module>portal-index</module>
         <module>portal-gateway</module>
         <module>portal-search</module>
+        <module>portal-page</module>
     </modules>
 
     <!--    锁定springboot的版本-->

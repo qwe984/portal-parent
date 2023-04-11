@@ -1,7 +1,7 @@
 package com.portal.service.impl;
 
-import com.portal.CmsClient;
-import com.portal.GoodsClient;
+import com.portal.cmc.CmsClient;
+import com.portal.goods.GoodsClient;
 import com.portal.JSONUtil;
 import com.portal.entity.cms.Content;
 import com.portal.entity.goods.WxbGoods;

@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = {"com.portal"})
+@EnableFeignClients(basePackages = {"com.portal.goods"})
 public class SearchApp {
     public static void main(String[] args) {
         SpringApplication.run(SearchApp.class, args);
