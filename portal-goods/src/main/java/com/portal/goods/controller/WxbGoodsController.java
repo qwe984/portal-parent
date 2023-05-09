@@ -6,9 +6,12 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.portal.JSONUtil;
 import com.portal.entity.goods.SpecInfo;
 import com.portal.entity.goods.WxbGoods;
+import com.portal.entity.goods.WxbGoodsSku;
 import com.portal.goods.service.IWxbGoodsService;
 import java.util.List;
 
+import com.portal.goods.service.IWxbGoodsSkuService;
+import com.portal.goods.service.impl.WxbGoodsServiceImpl;
 import com.portal.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,6 +51,18 @@ public class WxbGoodsController {
         List<SpecInfo> list = JSONUtil.toBean(spuSpecInfo, List.class);
         byId.setSpecInfos(list);
         return byId;
+    }
+
+
+    @Autowired
+    private IWxbGoodsSkuService iWxbGoodsSkuService;
+
+    @RequestMapping("findSkuListBySkuId")
+    public List<WxbGoodsSku> findSkuListBySpuId(String spuId){
+        QueryWrapper<WxbGoodsSku> wxbGoodsSkuQueryWrapper = new QueryWrapper<>();
+        wxbGoodsSkuQueryWrapper.eq("goods_id",spuId);
+        wxbGoodsSkuQueryWrapper.orderByDesc("is_default");
+        return iWxbGoodsSkuService.list(wxbGoodsSkuQueryWrapper);
     }
 
 }

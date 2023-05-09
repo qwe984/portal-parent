@@ -1,6 +1,7 @@
 package com.portal.goods;
 
 import com.portal.entity.goods.WxbGoods;
+import com.portal.entity.goods.WxbGoodsSku;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,5 +21,8 @@ public interface GoodsClient {
 
     @RequestMapping("findGoodsBySpuId")
     public WxbGoods findGoodsBySpuId( @RequestParam("spuId") String spuId);
+
+    @RequestMapping("findSkuListBySkuId")
+    public List<WxbGoodsSku> findSkuListBySpuId( @RequestParam("spuId") String spuId);
 
 }

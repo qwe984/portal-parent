@@ -13,6 +13,8 @@
         <module name="portal-util" />
         <module name="portal-gateway" />
         <module name="portal-code" />
+        <module name="portal-cart" />
+        <module name="portal-sso" />
         <module name="portal-cms" />
         <module name="portal-api" />
         <module name="portal-page" />
@@ -23,6 +25,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="portal-api" options="-parameters" />
+      <module name="portal-cart" options="-parameters" />
       <module name="portal-cms" options="-parameters" />
       <module name="portal-code" options="-parameters" />
       <module name="portal-entity" options="-parameters" />
@@ -31,6 +34,7 @@
       <module name="portal-index" options="-parameters" />
       <module name="portal-page" options="-parameters" />
       <module name="portal-search" options="-parameters" />
+      <module name="portal-sso" options="-parameters" />
       <module name="portal-util" options="-parameters" />
     </option>
   </component>

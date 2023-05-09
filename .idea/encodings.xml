@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/portal-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/portal-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-cart/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/portal-cms/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/portal-cms/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/portal-code/src/main/java" charset="UTF-8" />
@@ -18,6 +19,7 @@
     <file url="file://$PROJECT_DIR$/portal-page/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/portal-search/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/portal-search/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-sso/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/portal-util/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/portal-util/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />

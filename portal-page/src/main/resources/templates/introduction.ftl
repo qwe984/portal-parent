@@ -21,6 +21,9 @@
 		<script type="text/javascript" src="js/jquery.flexslider.js"></script>
 		<script type="text/javascript" src="js/list.js"></script>
 
+		<script src="js/vue/vue.min.js"></script>
+		<script src="js/axios.min.js"></script>
+		<script src="js/common.js"></script>
 	</head>
 
 	<body>
@@ -124,7 +127,7 @@
 
 				<!--放大镜-->
 
-				<div class="item-inform">
+				<div id="app" class="item-inform">
 					<div class="clearfixLeft" id="clearcontent">
 
 						<div class="box">
@@ -170,7 +173,7 @@
 						<!--名称-->
 						<div class="tb-detail-hd">
 							<h1>	
-				 良品铺子 手剥松子218g 坚果炒货 巴西松子
+				 {{sku.title}}
 	          </h1>
 						</div>
 						<div class="tb-detail-list">
@@ -178,11 +181,11 @@
 							<div class="tb-detail-price">
 								<li class="price iteminfo_price">
 									<dt>促销价</dt>
-									<dd><em>¥</em><b class="sys_item_price">56.90</b>  </dd>                                 
+									<dd><em>¥</em><b class="sys_item_price">{{sku.price}}</b>  </dd>
 								</li>
 								<li class="price iteminfo_mktprice">
 									<dt>原价</dt>
-									<dd><em>¥</em><b class="sys_item_mktprice">98.00</b></dd>									
+									<dd><em>¥</em><b class="sys_item_mktprice">{{sku.marketPrice}}</b></dd>
 								</li>
 								<div class="clear"></div>
 							</div>
@@ -248,7 +251,7 @@
 															<div class="cart-title">${spec.name}</div>
 															<ul>
 																<#list spec.opts as opt>
-																	<li class="sku-line">${opt}<i></i></li>
+																	<li @click="chooseSpec('${spec.name}','${opt}')" :class="optIsSelected('${spec.name}','${opt}')?'sku-line selected':'sku-line'">${opt}<i></i></li>
 																</#list>
 															</ul>
 														</div>
@@ -257,9 +260,9 @@
 														<div class="cart-title number">数量</div>
 														<dd>
 															<input id="min" class="am-btn am-btn-default" name="" type="button" value="-" />
-															<input id="text_box" name="" type="text" value="1" style="width:30px;" />
+															<input v-model="cartInfo.byNum" id="text_box" name="" type="text" value="1" style="width:30px;" />
 															<input id="add" class="am-btn am-btn-default" name="" type="button" value="+" />
-															<span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
+															<span id="Stock" class="tb-hidden">库存<span class="stock">{{sku.num}}</span>件</span>
 														</dd>
 
 													</div>
@@ -322,7 +325,7 @@
 							</li>
 							<li>
 								<div class="clearfix tb-btn tb-btn-basket theme-login">
-									<a id="LikBasket" title="加入购物车" href="#"><i></i>加入购物车</a>
+									<a @click.prevent="addCart()" id="LikBasket" title="加入购物车" href="#"><i></i>加入购物车</a>
 								</div>
 							</li>
 						</div>
@@ -1321,6 +1324,88 @@
 				</div>
 			</div>
 
+		<script>
+			var skuList=[
+				<#list skuList as sku>
+				{
+					id:"${sku.id?c}",
+					title:"${sku.title}",
+					price:${sku.price?c},
+					spec:${sku.spec},
+					marketPrice:${sku.marketPrice?c},
+					num:${sku.num?c}
+				},
+				</#list>
+			]
+		</script>
+
+		<script>
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					chooseSpecInfo:{},
+					sku:{},
+					cartInfo:{
+						skuId:"",
+						byNum:1,
+					}
+				},
+				methods:{
+					chooseSpec(spec,opt){	//用户选择规格
+						this.chooseSpecInfo[spec] = opt;
+
+						//匹配
+						vm.sku = {}
+						skuList.forEach(sku=>{
+							if (this.compareJsonObj(this.chooseSpecInfo,sku.spec)){
+								vm.sku = sku;
+							}
+						})
+
+
+						console.log(this.chooseSpecInfo)
+					},
+					compareJsonObj(obj1,obj2){
+						if (Object.keys(obj1).length != Object.keys(obj2).length){
+							return false;
+						}else{
+							for (var k in obj1){
+								if (obj1[k] != obj2[k]){
+									return false;
+								}
+							}
+							return true;
+						}
+					},
+					optIsSelected(spec,opt){
+						if (this.chooseSpecInfo[spec] == opt){
+							return true
+						}else{
+							return false
+						}
+					},
+					addCart(){	//加购
+						wfx.http.post("/cart/add",this.cartInfo).then(res=>{
+							if (res.data == "token"){	//token不合法，空
+								location.href = "http://passport.wfx.com?redirect="+location.href
+							}else{
+								if (res.success){
+
+								}
+							}
+						})
+					}
+				},
+				created(){
+					this.sku = JSON.parse(JSON.stringify(skuList[0]))
+
+					this.chooseSpecInfo = JSON.parse(JSON.stringify(skuList[0].spec))
+
+					//初始化cartInfo.skuId
+					this.cartInfo.skuId = skuList[0].id
+				}
+			})
+		</script>
 	</body>
 
 </html>

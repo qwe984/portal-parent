@@ -19,6 +19,8 @@
         <module>portal-gateway</module>
         <module>portal-search</module>
         <module>portal-page</module>
+        <module>portal-sso</module>
+        <module>portal-cart</module>
     </modules>
 
     <!--    锁定springboot的版本-->

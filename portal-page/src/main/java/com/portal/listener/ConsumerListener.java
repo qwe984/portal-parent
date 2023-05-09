@@ -1,6 +1,7 @@
 package com.portal.listener;
 
 import com.portal.entity.goods.WxbGoods;
+import com.portal.entity.goods.WxbGoodsSku;
 import com.portal.goods.GoodsClient;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerConfig;
 import java.io.FileWriter;
 import java.io.Writer;
 import java.util.HashMap;
+import java.util.List;
 
 @Component
 @RocketMQMessageListener(consumerGroup = "portal-page-consumer",
@@ -47,8 +49,13 @@ public class ConsumerListener implements RocketMQListener<String> {
 
         WxbGoods goods= goodsClient.findGoodsBySpuId(spuId);
 
+        //根据spuid获取sku列表
+        List<WxbGoodsSku> skuListBySpuId = goodsClient.findSkuListBySpuId(spuId);
+
+
         HashMap data = new HashMap();
         data.put("specs",goods.getSpecInfos());     //拿到数据
+        data.put("skuList",skuListBySpuId);
         Writer out = new FileWriter(HTMLSINK+"/"+spuId+".html");
         template.process(data,out);
         out.close();

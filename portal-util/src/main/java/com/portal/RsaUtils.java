@@ -98,8 +98,8 @@ public class RsaUtils {
 
     public static void main(String[] args)throws Exception {
 
-        String privateFilePath = "E:\\key\\rsa";
-        String publicFilePath = "E:\\key\\rsa.pub";
+        String privateFilePath = "D:\\portal\\ssokey\\rsa";
+        String publicFilePath = "D:\\portal\\ssokey\\rsa.pub";
 
         RsaUtils.generateKey(publicFilePath,privateFilePath,"portal",2048);
     }
