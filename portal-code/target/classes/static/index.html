@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="/css/element.css">
+    <!-- 引入组件库 -->
+</head>
+<body>
+
+<div id="app">
+
+    <el-form :inline="true" :model="formInline" class="demo-form-inline">
+        <el-form-item label="">
+            <el-input
+                    placeholder="请输入服务工程名"
+                    v-model="project"
+                    clearable>
+            </el-input>
+        </el-form-item>
+
+        <el-form-item label="">
+            <el-input
+                    placeholder="请输入模块名"
+                    v-model="module"
+                    clearable>
+            </el-input>
+        </el-form-item>
+        <el-form-item label="">
+            <el-input
+                    placeholder="请输入表名，多个表用逗号隔开"
+                    v-model="tables"
+                    clearable>
+            </el-input>
+        </el-form-item>
+        <el-form-item>
+            <el-button type="primary" @click="code()">快速生成</el-button>
+        </el-form-item>
+    </el-form>
+
+
+
+
+
+
+
+</div>
+
+
+
+</body>
+<script src="/js/axios.min.js"></script>
+<!-- import Vue before Element -->
+<script src="/js/vue.js"></script>
+<!-- import JavaScript -->
+<script src="/js/elmentui.js"></script>
+<script src="/js/echarts.min.js"></script>
+<script th:inline="none">
+    new Vue({
+        el: '#app',
+        data:{
+
+            project:"",
+            module:"",
+            tables:""
+
+        },
+        methods:{
+            code(){
+                axios.get(`/code?project=${this.project}&module=${this.module}&tables=${this.tables}`).then(res=>{
+                    alert("老弟，搞定！！")
+                })
+            }
+        },
+        created(){
+        }
+
+    })
+</script>
+</html>
